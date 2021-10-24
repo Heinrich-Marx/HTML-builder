@@ -11,7 +11,7 @@ fs.writeFile(bundle,'',err=> {
 fs.readdir(dirStyle,{withFileTypes: true},(err,files)=> {
     if (err) throw  err
     files.forEach((el)=> {
-        if (path.extname(el.name) == '.css') {
+        if (path.extname(el.name) === '.css') {
             fs.readFile(`${dirStyle}/${el.name}`,'utf-8',(err,data)=> {
                 if (err) throw err
                 else {
