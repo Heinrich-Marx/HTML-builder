@@ -52,6 +52,26 @@ fs.readFile("06-build-page/project-dist/index.html", "utf-8", (err, data) => {
       }
     );
   });
+  fs.access("06-build-page/components/about.html", (err) => {
+    if (!err) {
+      fs.readFile(
+        "06-build-page/components/about.html",
+        "utf-8",
+        (err, data5) => {
+          if (err) throw err;
+          data = data.replace("{{about}}", data5);
+          fs.writeFile(
+            "06-build-page/project-dist/index.html",
+            data,
+            "utf-8",
+            (err) => {
+              if (err) throw err;
+            }
+          );
+        }
+      );
+    }
+  });
 });
 
 // MAKE STYLE.CSS
