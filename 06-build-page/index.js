@@ -10,53 +10,6 @@ const article = path.resolve(__dirname, "components/articles.html");
 const about = path.resolve(__dirname, "components/about.html");
 
 // MAKE HTML FILE AND REPLACE TAGS
-// fs.mkdir(proj, { recursive: true }, (err) => {
-//   if (err) throw err;
-// });
-// const way = path.resolve(__dirname, "project-dist/index.html");
-// const html = fs.createReadStream(template, "utf-8");
-// const newHtml = fs.createWriteStream(way);
-// html.pipe(newHtml);
-
-// setTimeout(() => {
-//   fs.readFile(way, "utf-8", (err, data) => {
-//     if (err) throw err;
-//     fs.readFile(header, "utf-8", (err, data2) => {
-//       if (err) throw err;
-//       data = data.replace("{{header}}", data2);
-//       fs.writeFile(way, data, "utf-8", (err) => {
-//         if (err) throw err;
-//       });
-//     });
-//     fs.readFile(article, "utf-8", (err, data3) => {
-//       if (err) throw err;
-//       data = data.replace("{{articles}}", data3);
-//       fs.writeFile(way, data, "utf-8", (err) => {
-//         if (err) throw err;
-//       });
-//     });
-//     fs.readFile(footer, "utf-8", (err, data4) => {
-//       if (err) throw err;
-//       data = data.replace("{{footer}}", data4);
-//       fs.writeFile(way, data, "utf-8", (err) => {
-//         if (err) throw err;
-//       });
-//     });
-
-//     fs.access(about, (err) => {
-//       if (!err) {
-//         fs.readFile(about, "utf-8", (err, data5) => {
-//           if (err) throw err;
-//           data = data.replace("{{about}}", data5);
-//           fs.writeFile(way, data, "utf-8", (err) => {
-//             if (err) throw err;
-//           });
-//         });
-//       }
-//     });
-//   });
-// }, 10);
-
 fs.mkdir(proj, { recursive: true }, (err) => {
   if (err) throw err;
 });
@@ -71,9 +24,7 @@ setTimeout(() => {
     if (err) throw err;
     fs.readFile(way, "utf-8", (err, data) => {
       files.forEach((el) => {
-        let element = el.substring(0, el.indexOf("."));
-        //  console.log(element);
-        // fs.readFile(way, "utf-8", (err, data) => {
+        let element = el.substring(0, el.lastIndexOf("."));
         if (err) throw err;
         fs.readFile(
           path.resolve(__dirname, `components/${el}`),
@@ -87,48 +38,10 @@ setTimeout(() => {
             });
           }
         );
-        // });
       });
     });
   });
 }, 10);
-//   fs.readFile(way, "utf-8", (err, data) => {
-//     if (err) throw err;
-//     fs.readFile(header, "utf-8", (err, data2) => {
-//       if (err) throw err;
-//       data = data.replace("{{header}}", data2);
-//       fs.writeFile(way, data, "utf-8", (err) => {
-//         if (err) throw err;
-//       });
-//     });
-//     fs.readFile(article, "utf-8", (err, data3) => {
-//       if (err) throw err;
-//       data = data.replace("{{articles}}", data3);
-//       fs.writeFile(way, data, "utf-8", (err) => {
-//         if (err) throw err;
-//       });
-//     });
-//     fs.readFile(footer, "utf-8", (err, data4) => {
-//       if (err) throw err;
-//       data = data.replace("{{footer}}", data4);
-//       fs.writeFile(way, data, "utf-8", (err) => {
-//         if (err) throw err;
-//       });
-//     });
-
-//     fs.access(about, (err) => {
-//       if (!err) {
-//         fs.readFile(about, "utf-8", (err, data5) => {
-//           if (err) throw err;
-//           data = data.replace("{{about}}", data5);
-//           fs.writeFile(way, data, "utf-8", (err) => {
-//             if (err) throw err;
-//           });
-//         });
-//       }
-//     });
-//   });
-// }, 10);
 
 // MAKE STYLE.CSS
 const style = path.join(__dirname, "project-dist/style.css");
@@ -165,14 +78,6 @@ fs.readdir(dir, { withFileTypes: true }, (err, files) => {
         fs.readFile(`${dir}/${el.name}/${value.name}`, "utf-8", (err, data) => {
           if (err) throw err;
           else {
-            // fs.writeFile(
-            //   `${dir2}/${el.name}/${value.name}`,
-            //   data,
-            //   "utf-8",
-            //   (err) => {
-            //     if (err) throw err;
-            //   }
-            // );
             fs.createReadStream(`${dir}/${el.name}/${value.name}`).pipe(
               fs.createWriteStream(`${dir2}/${el.name}/${value.name}`)
             );
