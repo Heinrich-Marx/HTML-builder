@@ -1,3 +1,14 @@
+# Dmitrii Sotnikov
+---
+## Belarusian State University of Transport(2021)
+---
+**weriast98@gmail.com**
+---
++375297495087
+---
+* Belarusian Railway, assistant driver(1 year)
+
+
 # HTML builder
 ---
 
@@ -27,12 +38,3 @@
 [06 Сборка HTML страницы из компонентов и стилей](https://github.com/EvgeniiMal/HTML-builder/tree/main/06-build-page)  
 
 
-# Dmitrii Sotnikov
----
-## Belarusian State University of Transport(2021)
----
-**weriast98@gmail.com**
----
-+375297495087
----
-* Belarusian Railway, assistant driver(1 year)
